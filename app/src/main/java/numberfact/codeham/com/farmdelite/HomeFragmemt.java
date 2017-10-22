@@ -12,9 +12,7 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.view.ViewPager.PageTransformer;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
@@ -131,14 +129,7 @@ public class HomeFragmemt extends Fragment {
             }
         }, 2000, 4000);
 
-        Button btn = v.findViewById(R.id.sendMessage);
-        btn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ConstantUtils constantUtils = new ConstantUtils(getContext());
-                constantUtils.createUrl("Hi, Welcome to FarmDlite", "9559814196");
-            }
-        });
+
         return v;
     }
 

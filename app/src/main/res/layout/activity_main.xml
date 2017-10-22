@@ -55,6 +55,7 @@
                             android:textColor="#f8f8f8"
                             android:textSize="18sp"
                             android:textStyle="italic"/>
+
                     </android.support.v7.widget.Toolbar>
 
 

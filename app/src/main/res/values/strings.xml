@@ -2,4 +2,6 @@
     <string name="app_name">FarmDelite</string>
     <string name="True">true</string>
     <string name="False">false</string>
+    <string name="app_label">FarmDelite</string>
+    <string name="search_hint">Search Item</string>
 </resources>

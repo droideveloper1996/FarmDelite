@@ -8,9 +8,11 @@ import android.support.design.widget.NavigationView.OnNavigationItemSelectedList
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
                 switch (id) {
                     case R.id.action_home:
@@ -62,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction.replace(R.id.fragment_container, new AccountFragment()).commit();
                         break;
                     case R.id.action_cart:
-                       fragmentTransaction.replace(R.id.fragment_container, new CartFragment()).commit();
+                        fragmentTransaction.replace(R.id.fragment_container, new CartFragment()).commit();
                         break;
                     case R.id.action_wish:
-                       fragmentTransaction.replace(R.id.fragment_container, new FavouriteFragment()).commit();
+                        fragmentTransaction.replace(R.id.fragment_container, new FavouriteFragment()).commit();
                         break;
                     case R.id.action_search:
-                      fragmentTransaction.replace(R.id.fragment_container,new SearchFragment()).commit();
+                        fragmentTransaction.replace(R.id.fragment_container, new SearchFragment()).commit();
                         break;
                 }
                 return true;
@@ -86,6 +88,20 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflator = getMenuInflater();
         menuInflator.inflate(R.menu.main_menu, menu);
+        MenuItem menuItem=menu.findItem(R.id.action_searchbar);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
 
     }
@@ -95,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
+
         int id = item.getItemId();
         switch (id) {
             case R.id.action_notification:

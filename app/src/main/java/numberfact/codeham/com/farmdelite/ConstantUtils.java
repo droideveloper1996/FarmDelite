@@ -44,4 +44,14 @@ public class ConstantUtils {
         NetworkUtils networkUtils = new NetworkUtils(mContext);
         networkUtils.fetchResponse(Url);
     }
+
+
+    public static final String REGISTERED_EMAIL_ADDRESS = "email";
+    public static final String REGISTERED_MOBILE_NUMBER = "mobile";
+    public static final String REGISTERED_FIRST_NAME = "first_name";
+    public static final String REGISTERED_PASSWORD = "password";
+    public static final String REGISTERED_COUNTRY_CODE = "country-code";
+    public static final String REGISTERED_LAST_NAME = "last_name";
+    public static final String PROFILE_PIC_URL = "profile_url";
+    public static final String USER_STATUS = "user_status";
 }

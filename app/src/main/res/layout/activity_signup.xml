@@ -1,10 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="numberfact.codeham.com.farmdelite.SignupActivity">
+    android:background="#fbf4fb"
+    android:fitsSystemWindows="true"
+    >
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/imagelayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/background_signup"
+        android:elevation="8dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:padding="5dp"
+            android:src="@drawable/icon_navbar_arrow_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:elevation="5dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Sign Up"
+            android:textColor="#a9a9a9"
+            android:textSize="17.5sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:fontFamily="monospace"
+            android:padding="5dp"
+            android:text="Done"
+            android:textColor="#f72f72"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/set_profile_picture"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imagelayout"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/first_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_stye"
+                android:elevation="1dp"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="First Name"/>
+
+            <EditText
+                android:id="@+id/last_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_toRightOf="@id/first_name"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_stye"
+                android:elevation="1dp"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="Last Name"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearLayout"
+            android:layout_margin="3dp"
+            android:background="@drawable/edittext_stye"
+            android:elevation="1dp"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/email"
+            android:layout_margin="3dp"
+            android:background="@drawable/edittext_stye"
+            android:elevation="1dp"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Chose Password"
+            android:inputType="textPassword"/>
+
+        <LinearLayout
+            android:id="@+id/cc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password">
+
+
+            <EditText
+
+                android:id="@+id/mobile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:layout_weight="5"
+                android:background="@drawable/edittext_stye"
+                android:elevation="1dp"
+                android:fontFamily="sans-serif-condensed"
+                android:hint="Phone Number"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/getStarted"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorAccent"
+        android:elevation="14dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:elevation="5dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Get Started"
+            android:textAlignment="center"
+            android:textColor="#f9f9f9"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_margin="3dp"
+            android:layout_marginLeft="8dp"
+            android:elevation="5dp"
+            android:src="@drawable/icon_arrow_forward"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/already_have_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/getStarted"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="Already Have Account?"
+        android:textSize="14sp"
+        android:textStyle="italic"/>
+</RelativeLayout>
