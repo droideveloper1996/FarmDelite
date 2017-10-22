@@ -19,10 +19,10 @@
         <ImageView
             android:id="@+id/list_image"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="180dp"
             android:adjustViewBounds="true"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:scaleType="centerCrop"/>
     </android.support.v7.widget.CardView>
 

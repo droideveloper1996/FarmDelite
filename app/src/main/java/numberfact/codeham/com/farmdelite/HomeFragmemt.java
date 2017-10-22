@@ -10,6 +10,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.view.ViewPager.PageTransformer;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,7 @@ public class HomeFragmemt extends Fragment {
     private Context mCtx;
     private Activity activity;
     public static final String URLSS = "http://www.codeham.com/slider/";
+    RecyclerView recyclerView;
 
     @RequiresApi(api = VERSION_CODES.LOLLIPOP)
     @Nullable
@@ -43,6 +46,12 @@ public class HomeFragmemt extends Fragment {
         mCtx = getContext();
         activity = getActivity();
         viewPager = v.findViewById(R.id.viewPager);
+        recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.HORIZONTAL, false));
+
+        recyclerView.setAdapter(new HomeAdapter(mCtx));
+
         viewPager.setPageTransformer(false, new PageTransformer() {
             @Override
             public void transformPage(View view, float position) {
