@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Control Center"
+        android:id="@+id/action_control_center"
+
+        />
+    <item
+        android:title="Location"
+
+        />
+    <item
+        android:title="Security"
+        android:id="@+id/action_security"
+
+        />
+    <item
+        android:title="Climate Monitor"
+        android:id="@+id/action_temperature_control"
+        />
+
+    <item
+        android:title="Reset Device"
+        android:id="@+id/action_reset"
+        />
+
+    <item
+        android:title="Account"
+        android:id="@+id/action_account"
+        />
+
+    <item
+        android:title="Help &amp; Feedback"
+        android:id="@+id/action_help_feedback"
+        />
+</menu>

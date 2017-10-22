@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "890869226971",
+    "firebase_url": "https://farmdelite.firebaseio.com",
+    "project_id": "farmdelite",
+    "storage_bucket": "farmdelite.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890869226971:android:7cf00ce0f3e889fe",
+        "android_client_info": {
+          "package_name": "numberfact.codeham.com.farmdelite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890869226971-fu3mnrr8jg9qa4dopqof78v8jm384llg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "numberfact.codeham.com.farmdelite",
+            "certificate_hash": "c36607ae9e2728bcdf1085288c3374f7dd2aa202"
+          }
+        },
+        {
+          "client_id": "890869226971-6873pv2qkqaloi8aug5h82377ltc3k3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVeCEkYGzqRXll7XovVw1RrHayWbWjwTE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890869226971-6873pv2qkqaloi8aug5h82377ltc3k3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
