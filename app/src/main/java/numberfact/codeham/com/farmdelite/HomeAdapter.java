@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     private Context mCtx;
-    int arr[] = new int[]{R.drawable.abc,R.drawable.abc1};
+    String arr[] = new String[]{"http://www.codeham.com/slider/image1.jpeg","http://www.codeham.com/slider/image2.jpeg"};
 
     HomeAdapter(Context mCtx) {
         this.mCtx = mCtx;
@@ -31,7 +31,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Picasso.with(mCtx).load(arr[position]).placeholder(R.drawable.placeholder).into(holder.imageView);
+        Picasso.with(mCtx).load(arr[position]).into(holder.imageView);
     }
 
     @Override

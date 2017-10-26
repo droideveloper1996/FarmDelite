@@ -48,6 +48,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
+                            android:id="@+id/toolbartext"
                             android:fontFamily="sans-serif-condensed"
                             android:gravity="center_horizontal"
                             android:padding="16dp"

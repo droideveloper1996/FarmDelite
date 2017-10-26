@@ -1,5 +1,6 @@
 package numberfact.codeham.com.farmdelite;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -17,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import static numberfact.codeham.com.farmdelite.R.id.navigationView;
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView mNavigationView;
     TabLayout tabLayout;
+    Toolbar toolbar;
+    TextView toolbarTextView;
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -36,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, new HomeFragmemt()).commit();
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation_view);
-
+        toolbarTextView = (TextView) findViewById(R.id.toolbartext);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         mNavigationView = (NavigationView) findViewById(navigationView);
         setSupportActionBar(toolbar);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.True, R.string.False);
@@ -58,18 +62,35 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (id) {
                     case R.id.action_home:
+                        //Typeface boldTypeface = Typeface.defaultFromStyle(Typeface.ITALIC);
+                        toolbarTextView.setText("FarmDelite");
+                        toolbarTextView.setTypeface(toolbarTextView.getTypeface(), Typeface.ITALIC);
+                       // toolbarTextView.setTypeface(null, Typeface.ITALIC);
+
                         fragmentTransaction.replace(R.id.fragment_container, new HomeFragmemt()).commit();
                         break;
                     case R.id.action_account:
+                        toolbarTextView.setTypeface(toolbarTextView.getTypeface(), Typeface.NORMAL);
+
+                        toolbarTextView.setText("Account");
                         fragmentTransaction.replace(R.id.fragment_container, new AccountFragment()).commit();
                         break;
                     case R.id.action_cart:
+
+                        toolbarTextView.setTypeface(toolbarTextView.getTypeface(), Typeface.NORMAL);
+
+                        toolbarTextView.setText("Cart");
+
                         fragmentTransaction.replace(R.id.fragment_container, new CartFragment()).commit();
                         break;
                     case R.id.action_wish:
+                        toolbarTextView.setText("Wish");
+
                         fragmentTransaction.replace(R.id.fragment_container, new FavouriteFragment()).commit();
                         break;
                     case R.id.action_search:
+                        toolbarTextView.setText("Search");
+
                         fragmentTransaction.replace(R.id.fragment_container, new SearchFragment()).commit();
                         break;
                 }
@@ -88,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflator = getMenuInflater();
         menuInflator.inflate(R.menu.main_menu, menu);
-        MenuItem menuItem=menu.findItem(R.id.action_searchbar);
+        MenuItem menuItem = menu.findItem(R.id.action_searchbar);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
