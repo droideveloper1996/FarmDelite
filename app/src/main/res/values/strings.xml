@@ -4,4 +4,6 @@
     <string name="False">false</string>
     <string name="app_label">FarmDelite</string>
     <string name="search_hint">Search Item</string>
+    <string name="remove">Remove</string>
+    <string name="move">Move to Wishlist</string>
 </resources>

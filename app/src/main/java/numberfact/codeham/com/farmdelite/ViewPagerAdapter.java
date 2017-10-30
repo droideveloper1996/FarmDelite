@@ -22,7 +22,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     public static final String URLSS = "http://www.codeham.com/slider/";
 
-    String images[] = new String[]{URLSS + "image1.jpeg", URLSS + "image2.jpeg", URLSS + "image3.jpeg", URLSS + "image4.jpeg", URLSS + "image5.jpg"};
+    String images[] = new String[]{URLSS + "image1.jpg", URLSS + "image2.jpg", URLSS + "image3.jpg", URLSS + "image4.jpg", URLSS + "image5.jpg"};
     Context mContext;
 
     public ViewPagerAdapter(Context mContext) {

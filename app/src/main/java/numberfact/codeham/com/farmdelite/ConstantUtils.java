@@ -22,7 +22,20 @@ public class ConstantUtils {
     public static final String My_PASS = "abhishek";
 
     public static final String SENDER = "sender";
-    public static final String MY_SENDER = "TECHAD";
+
+    /**
+     * SENDER IDs Approved by TRAI.
+     */
+    public static final String MY_SENDER_ID1 = "TECHAD";
+    public static final String MY_SENDER_ID2 = "XAAMPP";
+    public static final String MY_SENDER_ID3 = "XMPSLR";
+    public static final String MY_SENDER_ID4 = "XPCARE";
+    public static final String MY_SENDER_ID5 = "XMPSUP";
+    public static final String MY_SENDER_ID6 = "FARMDE";
+    public static final String MY_SENDER_ID7 = "TECHAD";
+    public static final String MY_SENDER_ID8 = "DELITE";
+    public static final String MY_SENDER_ID9 = "FDCARE";
+
 
     public static final String MESSAGE = "message";
 
@@ -32,10 +45,10 @@ public class ConstantUtils {
 
 
     public void createUrl(String mess, String number) {
-        String message =  (mess);
+        String message = (mess);
         Uri Uri = android.net.Uri.parse(SMS_ALERT_BASE_URL).buildUpon().appendQueryParameter(USERNAME, MY_USER)
                 .appendQueryParameter(PASSWORD, My_PASS)
-                .appendQueryParameter(SENDER, MY_SENDER)
+                .appendQueryParameter(SENDER, MY_SENDER_ID1)
                 .appendQueryParameter(MESSAGE, message)
                 .appendQueryParameter(TO, number).build();
         String Url = Uri.toString();
@@ -54,4 +67,22 @@ public class ConstantUtils {
     public static final String REGISTERED_LAST_NAME = "last_name";
     public static final String PROFILE_PIC_URL = "profile_url";
     public static final String USER_STATUS = "user_status";
+
+
+    public static final String CART = "cart";
+    public static final String WISH = "wish";
+    public static final String ACCOUNT = "account";
+    public static final String ORDERS = "orders";
+    public static final String PRODUCTS = "products";
+
+    public static final String BRAND = "brand";
+    public static final String DETAIL = "detail";
+    public static final String MRP = "mrp";
+    public static final String NAME = "name";
+    public static final String PRICE = "price";
+    public static final String PRODUCT_URL = "product_url";
+    public static final String STOCK = "stock";
+
+
+
 }

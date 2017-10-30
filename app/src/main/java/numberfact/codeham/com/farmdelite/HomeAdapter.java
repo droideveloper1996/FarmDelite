@@ -16,7 +16,10 @@ import com.squareup.picasso.Picasso;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     private Context mCtx;
-    String arr[] = new String[]{"http://www.codeham.com/slider/image1.jpeg","http://www.codeham.com/slider/image2.jpeg"};
+    String arr[] = new String[]{
+            "http://www.codeham.com/slider/image1.jpg",
+            "http://www.codeham.com/slider/image2.jpg"
+    };
 
     HomeAdapter(Context mCtx) {
         this.mCtx = mCtx;

@@ -1,6 +1,7 @@
 package numberfact.codeham.com.farmdelite;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
                 }
             }
@@ -61,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         create_new_account.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                //  startActivity(new Intent(SigninActivity.this, SignupActivity.class));
+                  startActivity(new Intent(LoginActivity.this, SignupActivity.class));
             }
         });
     }
