@@ -2,6 +2,7 @@ package numberfact.codeham.com.farmdelite;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,7 +13,6 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.view.ViewPager.PageTransformer;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,14 +31,17 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import numberfact.codeham.com.farmdelite.HomeAdapter.OnItemClickListener;
+import numberfact.codeham.com.farmdelite.HomeProductAdapter.HomeProductClickListner;
+
 /**
  * Created by Abhishek on 21/10/2017.
  */
 
-public class HomeFragmemt extends Fragment {
+public class HomeFragmemt extends Fragment implements OnItemClickListener, HomeProductClickListner {
 
     ViewPager viewPager;
-
+    ArrayList<String> productId;
     LinearLayout sliderLayout;
     private int dotsCounts;
     private ImageView dots[];
@@ -61,10 +64,9 @@ public class HomeFragmemt extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference().child(ConstantUtils.PRODUCTS);
 
         cartItems = new ArrayList<>();
-
+        productId = new ArrayList<>();
         recycler_view = v.findViewById(R.id.recycler_view);
-        recycler_view.setLayoutManager(new
-                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        recycler_view.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.HORIZONTAL, false));
         recycler_view.setHasFixedSize(true);
       /*  = new HomeProductAdapter(mCtx, cartItems);
 
@@ -79,10 +81,9 @@ public class HomeFragmemt extends Fragment {
         recyclerView.setLayoutManager(new
 
                 GridLayoutManager(getContext(), 1, GridLayoutManager.HORIZONTAL, false));
+        HomeAdapter homeAdapter = new HomeAdapter(mCtx, (OnItemClickListener) HomeFragmemt.this);
 
-        recyclerView.setAdapter(new
-
-                HomeAdapter(mCtx));
+        recyclerView.setAdapter(homeAdapter);
 
         viewPager.setPageTransformer(false, new
 
@@ -193,7 +194,9 @@ public class HomeFragmemt extends Fragment {
 
 
                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                        Log.d("TAG", dataSnapshot1.toString());
+
+                        productId.add(dataSnapshot1.getKey());
+                        Log.d("TAG", dataSnapshot1.getKey());
                         String name = dataSnapshot1.child(ConstantUtils.NAME).getValue().toString();
                         String mrp = dataSnapshot1.child(ConstantUtils.MRP).getValue().toString();
                         String price = dataSnapshot1.child(ConstantUtils.PRICE).getValue().toString();
@@ -204,7 +207,7 @@ public class HomeFragmemt extends Fragment {
                         Log.d("CartFragment", name + mrp + price + brand + detail + Stock + product_url);
 
                         cartItems.add(new CartItem(brand, detail, mrp, name, price, product_url, Stock));
-                        homeProductAdapter = new HomeProductAdapter(mCtx, cartItems);
+                        homeProductAdapter = new HomeProductAdapter(mCtx, cartItems, (HomeProductAdapter.HomeProductClickListner) HomeFragmemt.this);
                         recycler_view.setAdapter(homeProductAdapter);
 
                     }
@@ -224,4 +227,26 @@ public class HomeFragmemt extends Fragment {
     }
 
 
+    @Override
+    public void homeProduct(int position) {
+        //startActivity(new Intent(mCtx, ProductActivity.class));
+    }
+
+    @Override
+    public void productClick(int position) {
+
+        Bundle bundle = new Bundle();
+        bundle.putString(ConstantUtils.PRODUCT_ID,productId.get(position));
+        bundle.putString(ConstantUtils.PRODUCT_NAME_KEY, cartItems.get(position).getName());
+        bundle.putString(ConstantUtils.PRODUCT_DETAIL_KEY, cartItems.get(position).getDetail());
+        bundle.putString(ConstantUtils.PRODUCT_PRICE_KEY, cartItems.get(position).getPrice());
+        bundle.putString(ConstantUtils.PRODUCT_URL, cartItems.get(position).getProduct_url());
+        bundle.putString(ConstantUtils.BRAND, cartItems.get(position).getBrand());
+
+
+        Intent i = new Intent(mCtx, ProductActivity.class);
+        i.putExtra("HAS_DATA", 1);
+        i.putExtras(bundle);
+        startActivity(i);
+    }
 }

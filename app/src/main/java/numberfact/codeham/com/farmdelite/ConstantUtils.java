@@ -84,5 +84,9 @@ public class ConstantUtils {
     public static final String STOCK = "stock";
 
 
+    public static final String PRODUCT_NAME_KEY = "product_name_key";
+    public static final String PRODUCT_PRICE_KEY = "product_price_key";
+    public static final String PRODUCT_DETAIL_KEY = "product_detail_key";
 
+    public static final String PRODUCT_ID="product_id";
 }

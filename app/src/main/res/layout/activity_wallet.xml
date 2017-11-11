@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="numberfact.codeham.com.farmdelite.WalletActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
+        android:background="@color/colorPrimary"
+        android:elevation="8dp"
+        android:scaleType="fitXY">
+
+        <TextView
+
+            android:id="@+id/title_wallet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
+            android:gravity="center_horizontal"
+            android:text="Wallet Balance"
+            android:textColor="#f8f8f8"
+            android:textSize="17.5sp"
+            android:textStyle="italic"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/title_wallet"
+            android:gravity="end"
+            android:padding="20dp"
+            android:text="$123.57"
+            android:textColor="#f0f0f0"
+            android:textSize="22.5sp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/award"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:alpha=".6"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_rewards"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/award"
+        android:padding="16dp"
+        android:text="Wallet Summary"
+        android:textSize="16.5sp"
+        android:textStyle="normal"/>
+
+</RelativeLayout>

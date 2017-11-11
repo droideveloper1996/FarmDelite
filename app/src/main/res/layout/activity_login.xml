@@ -7,7 +7,6 @@
     android:fitsSystemWindows="true"
     >
 
-
     <EditText
         android:id="@+id/username"
         android:layout_width="wrap_content"

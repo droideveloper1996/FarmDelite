@@ -148,6 +148,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/move_to_wishlist"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -160,17 +161,18 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="50dp"
-                android:background="#d8d8d8"
                 android:layout_marginTop="9dp"
+                android:background="#d8d8d8"
                 />
 
             <Button
+                android:id="@+id/remove"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:padding="5dp"
                 android:background="@android:color/transparent"
                 android:gravity="center|bottom"
+                android:padding="5dp"
                 android:text="@string/remove"
                 android:textSize="15.5sp"/>
         </LinearLayout>

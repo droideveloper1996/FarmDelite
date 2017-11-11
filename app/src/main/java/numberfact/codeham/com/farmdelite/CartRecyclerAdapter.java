@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,10 +22,18 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
 
     private Context mContext;
     ArrayList<CartItem> cartItem;
+    private final OnItemClickListener listener;
 
-    public CartRecyclerAdapter(Context mContext, ArrayList<CartItem> cartItem) {
+    public CartRecyclerAdapter(Context mContext, ArrayList<CartItem> cartItem, OnItemClickListener listener) {
         this.mContext = mContext;
         this.cartItem = cartItem;
+        this.listener = listener;
+    }
+
+    public interface OnItemClickListener {
+        void onRemoveClick(View view, int item);
+
+
 
     }
 
@@ -36,7 +45,7 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
     }
 
     @Override
-    public void onBindViewHolder(CartHolder holder, int position) {
+    public void onBindViewHolder(CartHolder holder, final int position) {
         holder.mPrice.setText(cartItem.get(position).getPrice());
         holder.mTitleView.setText(cartItem.get(position).getName());
         holder.mSeller.setText("FarmDeLite");
@@ -44,6 +53,9 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
         holder.strike.setPaintFlags(holder.strike.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
         Picasso.with(mContext).load(cartItem.get(position).getProduct_url()).into(holder.mImageView);
+        holder.remove.setTag(45);
+        holder.wish_btn.setTag(46);
+
     }
 
     @Override
@@ -51,20 +63,39 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
         return cartItem.size();
     }
 
-    public class CartHolder extends RecyclerView.ViewHolder {
+    public class CartHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView mImageView;
         TextView mTitleView;
         TextView mSeller;
         TextView mPrice;
         TextView strike;
+        Button wish_btn;
+        Button remove;
 
         public CartHolder(View itemView) {
             super(itemView);
+
             mImageView = itemView.findViewById(R.id.product_image_view);
             mSeller = itemView.findViewById(R.id.seller_name);
             mTitleView = itemView.findViewById(R.id.main_title);
             mPrice = itemView.findViewById(R.id.price);
             strike = itemView.findViewById(R.id.strike);
+            wish_btn = itemView.findViewById(R.id.move_to_wishlist);
+            remove = itemView.findViewById(R.id.remove);
+//              itemView.setOnClickListener(this);
+
+            remove.setOnClickListener(this);
+
+
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            int clickedPosition = getAdapterPosition();
+            listener.onRemoveClick(view.findViewById(R.id.remove), clickedPosition);
+
+
         }
     }
 }

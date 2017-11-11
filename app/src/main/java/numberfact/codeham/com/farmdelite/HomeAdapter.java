@@ -14,15 +14,26 @@ import com.squareup.picasso.Picasso;
  */
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
+    private final OnItemClickListener listener;
+ //   private final HomeProductClickListener homeProductclickListner;
+
+    interface OnItemClickListener {
+        void homeProduct(int position);
+
+    }
 
     private Context mCtx;
     String arr[] = new String[]{
-            "http://www.codeham.com/slider/image1.jpg",
-            "http://www.codeham.com/slider/image2.jpg"
-    };
+            "https://lh3.ggpht.com/N95wdMg31rW9uFtmXb7dlMEQqgR8Vt8G58_8G83AeXFD2kmTffp7FDo-65HdF18SXmk=h1080",
 
-    HomeAdapter(Context mCtx) {
+            "http://www.crossfitbothell.com/wp-content/uploads/2016/12/eating-chocolate-daily-is-good-for-health980-1456212647_980x457.jpg"
+            ,
+            "http://btulp.com/wp-content/uploads/2017/03/chocolate-gift-ideas-15.jpg"};
+
+    HomeAdapter(Context mCtx, OnItemClickListener listener) {
         this.mCtx = mCtx;
+
+        this.listener=listener;
     }
 
     @Override
@@ -42,12 +53,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         return arr.length;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements RecyclerView.OnClickListener {
         ImageView imageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.list_image);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            listener.homeProduct(position);
         }
     }
 }
