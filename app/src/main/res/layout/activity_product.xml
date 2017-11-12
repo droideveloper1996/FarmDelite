@@ -1,161 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="numberfact.codeham.com.farmdelite.ProductActivity">
+    android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        tools:context="numberfact.codeham.com.farmdelite.ProductActivity">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:fitsSystemWindows="true"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-
-            <TextView
-                android:id="@+id/toolbartext"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_horizontal"
-                android:padding="16dp"
-                android:text="Product"
-                android:textColor="#f8f8f8"
-                android:textSize="18sp"
-                android:textStyle="italic"/>
-
-        </android.support.v7.widget.Toolbar>
-
-
-    </android.support.design.widget.AppBarLayout>
-
-
-    <ImageView
-        android:id="@+id/product_image"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_below="@id/app_bar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="32dp"
-        android:adjustViewBounds="true"
-        />
-
-    <ImageView
-        android:id="@+id/offer"
-        android:layout_width="100dp"
-        android:layout_height="55dp"
-        android:layout_below="@id/app_bar"
-        android:layout_marginTop="5dp"
-        android:adjustViewBounds="true"
-        android:elevation="18dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/offer"
-        />
-
-    <TextView
-        android:id="@+id/item_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/product_image"
-        android:layout_marginLeft="16dp"
-        android:text="Patanjali Mari"
-        android:textColor="#282828"
-        android:textSize="18sp"/>
-
-    <TextView
-        android:id="@+id/special"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/item_name"
-        android:layout_marginLeft="16dp"
-        android:text="Special Price"
-        android:textColor="#2d8f43"
-        android:textSize="13sp"/>
-
-    <TextView
-        android:id="@+id/symbol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/special"
-        android:layout_marginLeft="16dp"
-        android:fontFamily="sans-serif"
-        android:text="&#8377;"
-        android:textColor="#292828"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/itemPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/special"
-        android:layout_toRightOf="@id/symbol"
-        android:fontFamily="sans-serif"
-        android:textColor="#292828"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/itemDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/itemPrice"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:text="Whole Wheat Biscuit. Sugar Free "/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/itemDescription"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/fv"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/itemDescription"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/btn"
-            android:drawableLeft="@drawable/ic_favorite_black_24dp"
-            android:elevation="8dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:text="Add to WishList"/>
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-        <Button
-            android:id="@+id/bk"
-            android:layout_width="0dp"
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:fitsSystemWindows="true"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <TextView
+                    android:id="@+id/toolbartext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="Product"
+                    android:textColor="#f8f8f8"
+                    android:textSize="18sp"
+                    android:textStyle="italic"/>
+
+            </android.support.v7.widget.Toolbar>
+
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <ImageView
+            android:id="@+id/product_image"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_below="@id/app_bar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="32dp"
+            android:adjustViewBounds="true"
+            />
+
+        <ImageView
+            android:id="@+id/offer"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:layout_below="@id/app_bar"
+            android:layout_marginTop="5dp"
+            android:adjustViewBounds="true"
+            android:elevation="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/offer"
+            />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_image"
+            android:layout_marginLeft="16dp"
+            android:text="Patanjali Mari"
+            android:textColor="#282828"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/pincode"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/itemDescription"
-            android:layout_marginLeft="16dp"
+            android:layout_below="@id/product_image"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/fv"
-            android:layout_weight="1"
-            android:background="@drawable/btn"
-            android:drawableLeft="@drawable/ic_shopping_cart_black_24dp"
-            android:elevation="8dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:text="Buy Now"/>
+            android:gravity="center_horizontal"
+            android:hint="Pincode"
+            android:textColor="#282828"
+            android:textSize="14sp"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/special"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_name"
+            android:layout_marginLeft="16dp"
+            android:text="Special Price"
+            android:textColor="#2d8f43"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/special"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="sans-serif"
+            android:text="&#8377;"
+            android:textColor="#292828"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/itemPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/special"
+            android:layout_toRightOf="@id/symbol"
+            android:fontFamily="sans-serif"
+            android:textColor="#292828"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/itemDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemPrice"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:text="Whole Wheat Biscuit. Sugar Free "/>
 
 
-</RelativeLayout>
+        <LinearLayout
+            android:id="@+id/first_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemDescription"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/wishlist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/first_linear_layout"
+                android:layout_marginLeft="@dimen/dimen_16dp"
+                android:layout_toEndOf="@+id/symbol"
+                android:layout_toRightOf="@+id/symbol"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_favorite_black_24dp"
+                android:elevation="8dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Add to WishList"/>
+
+            <Button
+                android:id="@+id/share"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_share_black_24dp"
+                android:elevation="8dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Share"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/first_linear_layout"
+            android:layout_marginLeft="16dp"
+            android:text="Description:"
+            android:textSize="14.5sp"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/desc"
+            android:layout_marginLeft="16dp"
+            android:text="Product Deep Description"
+            android:textColor="#282830"
+            android:textSize="14sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/first_linear_layout"
+            android:elevation="18dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_shopping_cart_black_24dp"
+                android:elevation="8dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Add to Cart"/>
+
+            <Button
+                android:id="@+id/buy_now"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/itemDescription"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_shopping_basket_black_25dp"
+                android:elevation="8dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Buy Now"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</ScrollView>

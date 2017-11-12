@@ -236,12 +236,13 @@ public class HomeFragmemt extends Fragment implements OnItemClickListener, HomeP
     public void productClick(int position) {
 
         Bundle bundle = new Bundle();
-        bundle.putString(ConstantUtils.PRODUCT_ID,productId.get(position));
+        bundle.putString(ConstantUtils.PRODUCT_ID, productId.get(position));
         bundle.putString(ConstantUtils.PRODUCT_NAME_KEY, cartItems.get(position).getName());
         bundle.putString(ConstantUtils.PRODUCT_DETAIL_KEY, cartItems.get(position).getDetail());
         bundle.putString(ConstantUtils.PRODUCT_PRICE_KEY, cartItems.get(position).getPrice());
         bundle.putString(ConstantUtils.PRODUCT_URL, cartItems.get(position).getProduct_url());
         bundle.putString(ConstantUtils.BRAND, cartItems.get(position).getBrand());
+        bundle.putString(ConstantUtils.MRP, cartItems.get(position).getMrp());
 
 
         Intent i = new Intent(mCtx, ProductActivity.class);

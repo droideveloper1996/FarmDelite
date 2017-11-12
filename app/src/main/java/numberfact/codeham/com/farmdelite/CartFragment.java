@@ -41,12 +41,14 @@ public class CartFragment extends Fragment implements OnItemClickListener {
     CartRecyclerAdapter cartRecyclerAdapter;
     ProgressBar progressBar;
     DatabaseReference wishListDatabase;
+    ArrayList<String> productIds;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.cart_fragment, container, false);
         cart_recycler = v.findViewById(R.id.recyclerview_cart);
         cartItemArrayList = new ArrayList<>();
+        productIds = new ArrayList<>();
         cart_recycler.setHasFixedSize(true);
         cart_recycler.setLayoutManager(new LinearLayoutManager(mContext));
         mCurrentUser = "Guest";
@@ -70,6 +72,7 @@ public class CartFragment extends Fragment implements OnItemClickListener {
                 if (dataSnapshot != null) {
                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                         String product_id = dataSnapshot1.getKey();
+                        productIds.add(product_id);
                         Log.d("CartFragment", product_id);
                         databaseProduct = FirebaseDatabase.getInstance().getReference().child(ConstantUtils.PRODUCTS).child(product_id);
                         databaseProduct.addValueEventListener(new ValueEventListener() {
@@ -89,7 +92,7 @@ public class CartFragment extends Fragment implements OnItemClickListener {
                                     String Stock = dataSnapshot2.child(ConstantUtils.STOCK).getValue().toString();
                                     Log.d("CartFragment", name + mrp + price + brand + detail + Stock + product_url);
                                     cartItemArrayList.add(new CartItem(brand, detail, mrp, name, price, product_url, Stock));
-                                    cartRecyclerAdapter = new CartRecyclerAdapter(mContext, cartItemArrayList, CartFragment.this);
+                                    cartRecyclerAdapter = new CartRecyclerAdapter(mContext,productIds, cartItemArrayList, CartFragment.this);
 
                                     cart_recycler.setAdapter(cartRecyclerAdapter);
                                     cartRecyclerAdapter.notifyDataSetChanged();
@@ -152,7 +155,7 @@ public class CartFragment extends Fragment implements OnItemClickListener {
                             if (c == item) {
                                 Log.d("CartFragment1", Integer.toString(c));
 
-                                databaseReference.child(id).removeValue()   ;
+                                databaseReference.child(id).removeValue();
                                 refId = id;
                                 break;
                             }

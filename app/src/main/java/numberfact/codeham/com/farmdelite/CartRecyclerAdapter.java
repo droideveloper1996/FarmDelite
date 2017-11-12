@@ -5,11 +5,18 @@ import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -22,17 +29,19 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
 
     private Context mContext;
     ArrayList<CartItem> cartItem;
+    ArrayList<String> productIds;
     private final OnItemClickListener listener;
+    DatabaseReference CartdatabaseReference;
 
-    public CartRecyclerAdapter(Context mContext, ArrayList<CartItem> cartItem, OnItemClickListener listener) {
+    public CartRecyclerAdapter(Context mContext, ArrayList<String> productIds, ArrayList<CartItem> cartItem, OnItemClickListener listener) {
         this.mContext = mContext;
         this.cartItem = cartItem;
         this.listener = listener;
+        this.productIds = productIds;
     }
 
     public interface OnItemClickListener {
         void onRemoveClick(View view, int item);
-
 
 
     }
@@ -53,9 +62,37 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
         holder.strike.setPaintFlags(holder.strike.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
         Picasso.with(mContext).load(cartItem.get(position).getProduct_url()).into(holder.mImageView);
-        holder.remove.setTag(45);
-        holder.wish_btn.setTag(46);
+        holder.remove.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                removeItem(position);
+
+            }
+        });
+
+
+    }
+
+    private void removeItem(int position) {
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            CartdatabaseReference = FirebaseDatabase.getInstance().getReference().child(ConstantUtils.CART)
+                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(productIds.get(position));
+            CartdatabaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(dataSnapshot!=null)
+                    {
+                        dataSnapshot.getRef().setValue(null);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     @Override
@@ -83,9 +120,6 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
             wish_btn = itemView.findViewById(R.id.move_to_wishlist);
             remove = itemView.findViewById(R.id.remove);
 //              itemView.setOnClickListener(this);
-
-            remove.setOnClickListener(this);
-
 
 
         }
